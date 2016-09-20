@@ -9,4 +9,5 @@ sed "s#HOST#$HOST#g" -i /jdbc.properties
 rm -rf /usr/local/tomcat/webapps/*
 mv target/$CATALOGUE.war /usr/local/tomcat/webapps
 
-catalina.sh run
+exec catalina.sh run "$@"
+
