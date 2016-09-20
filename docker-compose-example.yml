@@ -1,0 +1,19 @@
+geonetwork:
+  build: geonetwork
+  restart: always
+  ports:
+     - changeme:8080
+
+  labels:
+    io.rancher.scheduler.affinity:host_label: changeme
+
+  environment:
+    USERNAME: "changeme"
+    PASSWORD: "changeme"
+    DATABASE: "changeme"
+    HOST: "changeme"
+
+    JAVA_OPTS: "-Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Xms2G -Xss512M -Xmx2g -XX:MaxPermSize=512m -XX:+UseConcMarkSweepGC -Dinternal-catalogue.data.dir=/ -Deditor-catalogue.data.dir=/ -Dcatalogue.data.dir=/ -Dmap-catalogue.data.dir=/"
+
+    #values: catalogue, editor-catalogue, internal-catalogue, map-catalogue
+    CATALOGUE: "catalogue"
