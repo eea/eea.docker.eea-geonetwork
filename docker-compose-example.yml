@@ -13,10 +13,14 @@ geonetwork:
     DATABASE: "changeme"
     HOST: "changeme"
 
-    JAVA_OPTS: "-Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Xms2G -Xss512M -Xmx2g -XX:MaxPermSize=512m -XX:+UseConcMarkSweepGC -Dinternal-catalogue.data.dir=/ -Deditor-catalogue.data.dir=/ -Dcatalogue.data.dir=/ -Dmap-catalogue.data.dir=/"
-
     #values: catalogue, editor-catalogue, internal-catalogue, map-catalogue
     CATALOGUE: "catalogue"
 
+    JAVA_OPTS: "-Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Xms2G -Xss512M -Xmx2g -XX:MaxPermSize=512m -XX:+UseConcMarkSweepGC -Dinternal-catalogue.data.dir=/internal-catalogue-data -Deditor-catalogue.data.dir=/editor-catalogue-data -Dcatalogue.data.dir=/catalogue-data -Dmap-catalogue.data.dir=/map-catalogue-data -Deditor-catalogue.htmlcache.dir=/editor-catalogue-data/htmlcache -Dinternal-catalogue.htmlcache.dir=/Dinternal-catalogue-data/htmlcache -Dcatalogue.htmlcache.dir=/catalogue/htmlcache -Dmap-catalogue.htmlcache.dir=/map-catalogue/htmlcache -Deditor-catalogue.lucene.dir=/editor-catalogue-data/lucene -Dinternal-catalogue.lucene.dir=/Dinternal-catalogue-data/lucene -Dcatalogue.lucene.dir=/catalogue/lucene -Dmap-catalogue.lucene.dir=/map-catalogue/lucene"
+
+  #enable according to CATALOGUE variable value
   volumes:
-  - geonetwork-webapps:/usr/local/tomcat/webapps
+  - geonetwork-catalogue-data:/catalogue-data
+#  - geonetwork-editor-catalogue-data:/editor-catalogue-data
+#  - geonetwork-internal-catalogue-data:/internal-catalogue-data
+#  - geonetwork-map-catalogue-data:/map-catalogue-data
