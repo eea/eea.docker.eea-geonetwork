@@ -17,3 +17,6 @@ geonetwork:
 
     #values: catalogue, editor-catalogue, internal-catalogue, map-catalogue
     CATALOGUE: "catalogue"
+
+  volumes:
+  - geonetwork-webapps:/usr/local/tomcat/webapps
