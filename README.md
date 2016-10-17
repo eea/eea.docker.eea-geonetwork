@@ -4,10 +4,10 @@ edit docker-compose-example.yml -> i.e. docker-compose-internal.yml
 
 run the container with docker-compose:
 
-docker-compose -f docker-compose-internal.yml up
-docker-compose -f docker-compose-public.yml up
-docker-compose -f docker-compose-editor.yml up
-docker-compose -f docker-compose-map.yml up
+    docker-compose -f docker-compose-internal.yml up
+    docker-compose -f docker-compose-public.yml up
+    docker-compose -f docker-compose-editor.yml up
+    docker-compose -f docker-compose-map.yml up
 
 ## Release to production
 
