@@ -1,1 +1,5 @@
 docker-compose.yml
+docker-compose-editor.yml
+docker-compose-internal.yml
+docker-compose-map.yml
+docker-compose-public.yml
