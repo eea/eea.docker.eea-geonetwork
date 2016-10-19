@@ -9,6 +9,7 @@ sed "s#USERNAME#$USERNAME#g" -i /jdbc.properties
 sed "s#PASSWORD#$PASSWORD#g" -i /jdbc.properties
 sed "s#DATABASE#$DATABASE#g" -i /jdbc.properties
 sed "s#HOST#$HOST#g" -i /jdbc.properties
+sed "s#PORT#$PORT#g" -i /jdbc.properties
 
 cp /jdbc.properties /$CATALOGUE-data/jdbc.properties
 

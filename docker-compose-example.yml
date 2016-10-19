@@ -12,6 +12,8 @@ geonetwork:
     PASSWORD: "changeme"
     DATABASE: "changeme"
     HOST: "changeme"
+    PORT: "changeme"
+
     #values: catalogue, editor-catalogue, internal-catalogue, map-catalogue
     CATALOGUE: "catalogue"
 
