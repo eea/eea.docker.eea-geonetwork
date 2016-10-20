@@ -6,6 +6,8 @@ RUN wget http://files.titellus.net/geonetwork/eea/eea-catalogues-3.2.x.tar.gz -O
 
 RUN tar -xvzf eea-catalogues.tar.gz -C /
 
+RUN sed -i 's/port="8080"/port="8080" URIEncoding="UTF-8"/' /usr/local/tomcat/conf/server.xml
+
 COPY jdbc.properties /jdbc.properties
 COPY entrypoint.sh /entrypoint.sh
 
