@@ -25,6 +25,7 @@ follows [semantic versioning](http://semver.org/) principles.  Here is how you d
     git push origin master
     
     in case there's no automatic build on docker hub:
+    docker login
     docker build -t eeacms/eea-geonetwork:latest eea-geonetwork
     docker tag eeacms/eea-geonetwork:latest eeacms/eea-otrs:$version
     docker push eeacms/eea-geonetwork:latest
