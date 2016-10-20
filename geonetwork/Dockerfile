@@ -2,7 +2,7 @@ FROM tomcat:7.0-jre8
 
 MAINTAINER michimau <mauro.michielon@eea.europa.eu>
 
-RUN wget http://files.titellus.net/geonetwork/eea/eea-catalogues-3.2.x.tar.gz -O eea-catalogues.tar.gz
+RUN wget http://files.titellus.net/geonetwork/eea/eea-catalogues-3.2.0.tar.gz -O eea-catalogues.tar.gz
 
 RUN tar -xvzf eea-catalogues.tar.gz -C /
 
