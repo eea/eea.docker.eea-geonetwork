@@ -31,7 +31,7 @@ cp /jdbc_internal.properties /internal-catalogue-data/jdbc.properties
 cp /jdbc_editor.properties /editor-catalogue-data/jdbc.properties
 cp /jdbc_map.properties /map-catalogue-data/jdbc.properties
 
-rm /usr/local/tomcat/webapps/*
+rm -rf /usr/local/tomcat/webapps/*
 cp /target/*.war /usr/local/tomcat/webapps
 echo all artifacts copied in webapps
 
