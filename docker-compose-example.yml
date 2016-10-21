@@ -10,19 +10,22 @@ geonetwork:
   environment:
     USERNAME: "chngeme"
     PASSWORD: "changeme"
-    DATABASE: "changeme"
+    DATABASE_PUBLIC: "changeme"
+    DATABASE_INTERNAL: "changeme"
+    DATABASE_EDITOR: "changeme"
+    DATABASE_MAP: "changeme"
     HOST: "changeme"
     PORT: "changeme"
 
     #values: catalogue, editor-catalogue, internal-catalogue, map-catalogue
-    CATALOGUE: "catalogue"
+    #CATALOGUE: "catalogue"
 
-    JAVA_OPTS: "-Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Xms2G -Xss512M -Xmx2g -XX:MaxPermSize=512m -XX:+UseConcMarkSweepGC -Dinternal-catalogue.data.dir=/internal-catalogue-data -Deditor-catalogue.data.dir=/editor-catalogue-data -Dcatalogue.data.dir=/catalogue-data -Dmap-catalogue.data.dir=/map-catalogue-data -Deditor-catalogue.htmlcache.dir=/editor-catalogue-data/htmlcache -Dinternal-catalogue.htmlcache.dir=/Dinternal-catalogue-data/htmlcache -Dcatalogue.htmlcache.dir=/catalogue-data/htmlcache -Dmap-catalogue.htmlcache.dir=/map-catalogue-data/htmlcache -Deditor-catalogue.lucene.dir=/editor-catalogue-data/lucene -Dinternal-catalogue.lucene.dir=/Dinternal-catalogue-data/lucene -Dcatalogue.lucene.dir=/catalogue-data/lucene -Dmap-catalogue.lucene.dir=/map-catalogue-data/lucene"
+    JAVA_OPTS: "-Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Xms2G -Xss512M -Xmx3g -XX:+UseConcMarkSweepGC -Dinternal-catalogue.data.dir=/internal-catalogue-data -Deditor-catalogue.data.dir=/editor-catalogue-data -Dcatalogue.data.dir=/catalogue-data -Dmap-catalogue.data.dir=/map-catalogue-data -Deditor-catalogue.htmlcache.dir=/editor-catalogue-data/htmlcache -Dinternal-catalogue.htmlcache.dir=/Dinternal-catalogue-data/htmlcache -Dcatalogue.htmlcache.dir=/catalogue-data/htmlcache -Dmap-catalogue.htmlcache.dir=/map-catalogue-data/htmlcache -Deditor-catalogue.lucene.dir=/editor-catalogue-data/lucene -Dinternal-catalogue.lucene.dir=/Dinternal-catalogue-data/lucene -Dcatalogue.lucene.dir=/catalogue-data/lucene -Dmap-catalogue.lucene.dir=/map-catalogue-data/lucene"
 
   volumes:
   - /backups:/backups
   - geonetwork-catalogue-data:/catalogue-data
-#  - geonetwork-editor-catalogue-data:/editor-catalogue-data
-#  - geonetwork-internal-catalogue-data:/internal-catalogue-data
-#  - geonetwork-map-catalogue-data:/map-catalogue-data
+  - geonetwork-editor-catalogue-data:/editor-catalogue-data
+  - geonetwork-internal-catalogue-data:/internal-catalogue-data
+  - geonetwork-map-catalogue-data:/map-catalogue-data
 
