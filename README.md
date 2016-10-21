@@ -25,7 +25,7 @@ follows [semantic versioning](http://semver.org/) principles.  Here is how you d
     docker login
     docker build --no-cache -t eeacms/eea-geonetwork:latest .
     docker build --no-cache -t eeacms/eea-geonetwork:$version .
-    docker tag eeacms/eea-geonetwork:latest eeacms/eea-otrs:$version
+    docker tag eeacms/eea-geonetwork:latest eeacms/eea-geonetwork:$version
     docker push eeacms/eea-geonetwork:latest
     docker push eeacms/eea-geonetwork:$version
 
