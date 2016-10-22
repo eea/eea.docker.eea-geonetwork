@@ -13,4 +13,4 @@ COPY entrypoint_all_catalogues.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-EXPOSE 8080
+EXPOSE 8080 8009
