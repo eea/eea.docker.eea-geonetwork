@@ -31,7 +31,9 @@ cp /jdbc_editor.properties /editor-catalogue-data/jdbc.properties
 cp /jdbc_map.properties /map-catalogue-data/jdbc.properties
 
 rm -rf /usr/local/tomcat/webapps/*
-cp /target/*.war /usr/local/tomcat/webapps
+cp /target/catalogue.war /usr/local/tomcat/webapps
+cp /target/editor-catalogue.war /usr/local/tomcat/webapps
+cp /target/internal-catalogue.war /usr/local/tomcat/webapps
 echo all artifacts copied in webapps
 
 exec catalina.sh run "$@"
