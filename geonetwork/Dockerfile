@@ -1,15 +1,18 @@
-FROM tomcat:7.0-jre8
+FROM  tomcat:8-jre8
 
 MAINTAINER michimau <mauro.michielon@eea.europa.eu>
 
-RUN wget http://files.titellus.net/geonetwork/eea/eea-catalogues-3.2.0.tar.gz -O eea-catalogues.tar.gz
+RUN apt-get -y update
+RUN apt-get -y install vim
+RUN wget http://files.titellus.net/geonetwork/eea/eea-catalogues-3.4.2.tar.gz -O eea-catalogues.tar.gz
 
 RUN tar -xvzf eea-catalogues.tar.gz -C /
 
 RUN sed -i 's/port="8080"/port="8080" URIEncoding="UTF-8"/' /usr/local/tomcat/conf/server.xml
 
 COPY jdbc.properties /jdbc.properties
-COPY entrypoint_all_catalogues.sh /entrypoint.sh
+
+COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 

@@ -13,7 +13,9 @@ sed "s#PORT#$PORT#g" -i /jdbc.properties
 
 cp /jdbc.properties /$CATALOGUE-data/jdbc.properties
 
+rm -rf /usr/local/tomcat/webapps/*
 cp /target/$CATALOGUE.war /usr/local/tomcat/webapps 
+
 echo $CATALOGUE.war artifact copied in webapps
 
 exec catalina.sh run "$@"
