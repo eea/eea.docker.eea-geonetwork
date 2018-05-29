@@ -4,7 +4,7 @@ MAINTAINER michimau <mauro.michielon@eea.europa.eu>
 
 RUN apt-get -y update
 RUN apt-get -y install vim
-RUN wget http://files.titellus.net/geonetwork/eea/eea-catalogues-3.4.2.tar.gz -O eea-catalogues.tar.gz
+RUN wget http://files.titellus.net/geonetwork/eea/eea-catalogues-3.4.3.tar.gz -O eea-catalogues.tar.gz
 
 RUN tar -xvzf eea-catalogues.tar.gz -C /
 
