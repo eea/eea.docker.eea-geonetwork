@@ -1,23 +1,34 @@
+FROM jetty:9-jdk8-eclipse-temurin as build
+
+USER root
+RUN apt-get -y update && \
+    apt-get install -y maven \
+    git \
+    zip
+
+USER jetty
+RUN git clone --recursive https://github.com/eea/geonetwork-eea.git
+
+RUN cd geonetwork-eea && \
+    mvn clean install -DskipTests
+RUN cd geonetwork-eea/web && \
+    mvn package  -DskipTests -Penv-catalogue
+
+RUN unzip /var/lib/jetty/geonetwork-eea/web/target/catalogue.war -d /var/lib/jetty/webapps/catalogue
+
+
 FROM jetty:9-jdk8-eclipse-temurin
 MAINTAINER michimau <mauro.michielon@eea.europa.eu>
 
-ARG id
 USER root
-RUN apt-get -y update && \
-    apt-get -y install vim \
-    wget \
-    sudo \
-    zip
-
-RUN wget https://files.titellus.net/geonetwork/eea-v4/eea-catalogues-$id.tar.gz -O eea-catalogues.tar.gz && \
-    tar -xvzf eea-catalogues.tar.gz -C /
 
 RUN rm -rf /var/lib/jetty/webapps/*  && \
-    chown jetty:jetty /target /var/lib/jetty/webapps && \
+    chown jetty:jetty /var/lib/jetty/webapps && \
     mkdir -p /catalogue-data && \
     chown -R jetty:jetty /catalogue-data
 
-RUN unzip -o /target/catalogue.war -d /var/lib/jetty/webapps/caalogue
+COPY --from=build /var/lib/jetty/webapps/catalogue /var/lib/jetty/webapps/catalogue
+
 COPY docker-entrypoint.sh /
 
 USER jetty
