@@ -1,15 +1,25 @@
-FROM  tomcat:8-jre8
-
+FROM jetty:9-jdk8-eclipse-temurin
 MAINTAINER michimau <mauro.michielon@eea.europa.eu>
 
 ARG id
+USER root
+RUN apt-get -y update && \
+    apt-get -y install vim \
+    wget \
+    sudo \
+    zip
 
-RUN apt-get -y update
-#RUN apt-get -y install vim
-RUN wget https://files.titellus.net/geonetwork/eea/eea-catalogues-$id.tar.gz -O eea-catalogues.tar.gz && \
-    tar -xvzf eea-catalogues.tar.gz -C / && \
-    sed -i 's/port="8080"/port="8080" URIEncoding="UTF-8"/' /usr/local/tomcat/conf/server.xml
+RUN wget https://files.titellus.net/geonetwork/eea-v4/eea-catalogues-$id.tar.gz -O eea-catalogues.tar.gz && \
+    tar -xvzf eea-catalogues.tar.gz -C /
 
-COPY jdbc.properties entrypoint.sh /
+RUN rm -rf /var/lib/jetty/webapps/*  && \
+    chown jetty:jetty /target /var/lib/jetty/webapps && \
+    mkdir -p /catalogue-data && \
+    chown -R jetty:jetty /catalogue-data
 
-ENTRYPOINT ["/entrypoint.sh"]
+RUN unzip -o /target/catalogue.war -d /var/lib/jetty/webapps/caalogue
+COPY docker-entrypoint.sh /
+
+USER jetty
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
