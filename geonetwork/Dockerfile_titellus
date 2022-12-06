@@ -18,6 +18,10 @@ RUN rm -rf /var/lib/jetty/webapps/*  && \
     chown -R jetty:jetty /catalogue-data
 
 RUN unzip -o /target/catalogue.war -d /var/lib/jetty/webapps/catalogue
+
+RUN chown -R jetty:jetty /var/lib/jetty/webapps
+
+
 COPY docker-entrypoint.sh /
 
 USER jetty
