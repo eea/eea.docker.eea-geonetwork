@@ -29,6 +29,8 @@ RUN rm -rf /var/lib/jetty/webapps/*  && \
 
 COPY --from=build /var/lib/jetty/webapps/catalogue /var/lib/jetty/webapps/catalogue
 
+RUN chown -R jetty:jetty /var/lib/jetty/webapps
+
 COPY docker-entrypoint.sh /
 
 USER jetty
